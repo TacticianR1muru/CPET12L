@@ -1,0 +1,87 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.container {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 800px;
+    padding: 20px;
+}
+.header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.header img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+.header h1 {
+    font-size: 24px;
+    margin: 0;
+}
+.header .back {
+    margin-left: auto;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+}
+.tabs {
+    display: flex;
+    margin-bottom: 20px;
+}
+.tabs button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background-color: #e0e0e0;
+    font-size: 14px;
+    cursor: pointer;
+}
+.tabs button.active {
+    border-bottom: 3px solid black;
+    font-weight: bold;
+}
+.report {
+    background-color: #e0e0e0;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.report .details {
+    flex: 1;
+    display: flex;
+}
+.report .details .date {
+    margin-right: 20px;
+    border-right: 1px solid #ccc;
+    padding-right: 20px;
+}
+.report .details .info {
+    flex: 1;
+    padding-left: 20px;
+}
+.report .details p {
+    margin: 5px 0;
+}
+.report button {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+}

@@ -1,0 +1,77 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.container {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 600px; /* Increased width */
+    padding: 20px;
+    text-align: center;
+}
+.header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.header img {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+.header h1 {
+    font-size: 24px;
+    margin: 0;
+}
+.line {
+    border-bottom: 1px solid #000;
+    margin-bottom: 10px;
+}
+.sub-header {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: left; /* Align to the left */
+}
+.form-container {
+    background-color: #d3d3d3;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the form group */
+}
+.form-group label {
+    font-size: 14px;
+    margin-right: 10px;
+    width: 80px; /* Adjust width as needed */
+    text-align: right;
+}
+.form-group input {
+    width: 80%; /* Make the input box shorter */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.btn-container {
+    text-align: center;
+}
+.btn {
+    background-color: #d3d3d3;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+}

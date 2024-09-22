@@ -1,0 +1,93 @@
+   body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: white;
+            width: 800px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .header img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #ccc;
+            margin-right: 20px;
+        }
+        .header h1 {
+            font-size: 32px;
+            margin: 0;
+        }
+        .sub-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+        }
+        .sub-header h2 {
+            font-size: 20px;
+            margin: 0;
+            flex: 1;
+        }
+        .sub-header p {
+            font-size: 14px;
+            margin: 0;
+            border-left: 1px solid #ccc;
+            padding-left: 10px;
+            flex: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .sub-header .placeholder-box {
+            width: 20px;
+            height: 20px;
+            background-color: #ccc;
+            margin-left: 10px;
+        }
+        .record {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .record div {
+            flex: 1;
+            text-align: center;
+        }
+        .record div:not(:last-child) {
+            border-right: 1px solid #ccc;
+        }
+        .record .actions {
+            text-align: center;
+        }
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+        .buttons button {
+            width: 48%;
+            padding: 10px;
+            border: none;
+            border-radius: 20px;
+            background-color: #ccc;
+            font-size: 16px;
+            cursor: pointer;
+        }
