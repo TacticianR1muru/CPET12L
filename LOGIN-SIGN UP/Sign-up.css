@@ -1,0 +1,66 @@
+/* Basic styling for the body to center the form */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    cursor: default; /* Ensures the default cursor is used for the body */
+    user-select: none; /* Prevents text selection on the entire page */
+}
+
+/* Styling for the signup container */
+.signup-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    cursor: default; /* Ensures the default cursor for the form container */
+    user-select: none; /* Prevents text selection in the container */
+}
+
+/* Styling for the heading */
+.signup-container h2 {
+    margin-top: 0;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: default; /* Ensures the default cursor for headings */
+    user-select: none; /* Prevents text selection on the heading */
+}
+
+/* Styling for the labels */
+.signup-container label {
+    display: block;
+    margin: 10px 0 5px;
+    font-size: 14px;
+    cursor: default; /* Ensures the default cursor for labels */
+    user-select: none; /* Prevents text selection on labels */
+}
+
+/* Styling for the input fields */
+.signup-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    cursor: text; /* Shows typing cursor inside input fields */
+    user-select: text; /* Allows text selection in the input fields */
+}
+
+/* Styling for the submit button */
+.signup-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer; /* Shows pointer cursor when hovering over the button */
+    user-select: none; /* Prevents text selection on the button */
+}
