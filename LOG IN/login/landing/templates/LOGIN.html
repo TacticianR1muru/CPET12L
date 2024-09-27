@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+ <head>
+  <title>
+   Login Page
+  </title>
+ </head>
+ <body>
+  <div class="container">
+   <img alt="Profile Picture Placeholder" height="100" src=# width="100"/>
+   <h1>
+    WELCOME!
+   </h1>
+   <hr/>
+   <label for="id-number">
+    ID Number:
+   </label>
+   <input id="id-number" name="id-number" type="text"/>
+   <label for="password">
+    Password:
+   </label>
+   <input id="password" name="password" type="password"/>
+   <a href="{% url 'change' %}"><button type="button">LOG IN</button>
+   </a>
+   <div class="links">
+    No Account? <a href="{% url 'signup' %}">Sign Up Here</a>
+    <br/>
+    <a href="{% url 'forget' %}">Forgot Password</a>
+   </div>
+  </div>
+ </body>
+</html>
