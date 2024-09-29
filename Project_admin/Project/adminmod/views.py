@@ -132,6 +132,8 @@ def studset(request):
 
 def studstat(request):
     return render(request, 'studentmod/Student Status.html')
+def infopopup3(request):
+    return render(request, 'studentmod/infopopup3.html')
 
 #------- guard and instructor module ------
 def  addstudent(request):

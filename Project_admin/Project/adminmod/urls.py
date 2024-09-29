@@ -70,7 +70,8 @@ urlpatterns = [
     path('monitorreport/'  , views.monitorrep, name='monitorreport'),
     path('reportsummarystudent/'   , views.reportsumstud, name='reportsummarystudent'),
     path('studentsettings/'    , views.studset, name='studentsettings'),
-    path('studentstatus/'     , views.studstat, name='studentstatus'),    
+    path('studentstatus/'     , views.studstat, name='studentstatus'),   
+    path("infopopup3/", views.infopopup3, name="infopopup3"), 
 
     #guard and instructor mod
     path('addstudent/', views.addstudent, name='addstudent'),
