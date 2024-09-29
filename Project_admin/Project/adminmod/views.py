@@ -48,17 +48,19 @@ def ModifyExpulsion(request):
     return render(request, 'dboard_violation_rev/summary_issue/ModifyExpulsion.html')
 def ModifySuspension(request):
     return render(request, 'dboard_violation_rev/summary_issue/ModifySuspension.html')
+def ProbationProgress(request):
+    return render(request, 'dboard_violation_rev/summary_issue/ProbationProgress.html'),
 
 # ------ Modify Violation ------
 #dboard_modify
 def ModifyViolation(request):
-    return render(request, 'db_modify_violation/ModifyViolation.html')
+    return render(request, 'dboard_modify_violation/ModifyViolation.html')
 def Infopopup2(request):
-    return render(request, 'db_modify_violation/Infopopup2.html')
+    return render(request, 'dboard_modify_violation/Infopopup2.html')
 def AddViolation(request):
-    return render(request, 'db_modify_violation/AddViolation.html')
+    return render(request, 'dboard_modify_violation/AddViolation.html')
 def EditViolation(request):
-    return render(request, 'db_modify_violation/EditViolation.html')
+    return render(request, 'dboard_modify_violation/EditViolation.html')
 
 # ------ Student Records ------
 def studrec(request):
