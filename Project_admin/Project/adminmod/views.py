@@ -54,6 +54,8 @@ def ModifyExpulsion(request):
     return render(request, 'dboard_violation_rev/modify_issue/ModifyExpulsion.html')
 def ModifySuspension(request):
     return render(request, 'dboard_violation_rev/modify_issue/ModifySuspension.html')
+def ModifyProbation(request):
+    return render(request, 'dboard_violation_rev/modify_issue/ModifyProbation.html')
 def ProbationProgress(request):
     return render(request, 'dboard_violation_rev/modify_issue/ProbationProgress.html')
 

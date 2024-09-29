@@ -31,6 +31,7 @@ urlpatterns = [
     #modify_status
     path('ModifyExpulsion/', views.ModifyExpulsion, name='ModifyExpulsion'),
     path('ModifySuspension/', views.ModifySuspension, name='ModifySuspension'),
+    path('ModifyProbation/', views.ModifyProbation, name='ModifyProbation'),
     path('ProbationProgress/', views.ProbationProgress, name='ProbationProgress'),
     
     #dboard_modify_violation
