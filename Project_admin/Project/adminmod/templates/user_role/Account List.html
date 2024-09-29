@@ -2,10 +2,11 @@
  <head>
  </head>
  <body>
+    {% load static %}
   <div class="container">
    <div class="header">
     <a href="{% url 'dashboard' %}">
-    <img alt="User icon" height="50" src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-BVbpSZmLndA7MfHIxv2ahIKS/user-IBY8IaMXtVn7IVIdZeyvjx16/img-exut8teghUn3mS73ZrSOHQbQ.png?st=2024-09-19T13%3A59%3A11Z&amp;se=2024-09-19T15%3A59%3A11Z&amp;sp=r&amp;sv=2024-08-04&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=d505667d-d6c1-4a0a-bac7-5c84a87759f8&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2024-09-19T01%3A59%3A21Z&amp;ske=2024-09-20T01%3A59%3A21Z&amp;sks=b&amp;skv=2024-08-04&amp;sig=wdLgvavqUFBbfwoSb/m0W7Hn7VuPSSAtYfV4wJokS7g%3D" width="50"/>
+    <img src="{% static 'adminmod/images/home.png' %}" alt="Profile Picture Placeholder" height="20" width="20"/>
     </a>
     <h1>
      User Role
@@ -29,7 +30,7 @@
        ADMIN
       </div>
       <a href="{% url 'useraccount' %}">
-        <img alt="Admin icon" class="icon" src="#"/>
+        <img src="{% static 'adminmod/images/paper.png' %}" alt="Profile Picture Placeholder" height="20" width="20"/>
         </a>
      </div>
     </div>
@@ -47,7 +48,7 @@
        GUARD
       </div>
       <a href="{% url 'useraccount' %}">
-        <img alt="guard icon" class="icon" src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-BVbpSZmLndA7MfHIxv2ahIKS/user-IBY8IaMXtVn7IVIdZeyvjx16/img-D1sgQi085sCQcKjWdF4nEKpd.png?st=2024-09-19T14%3A03%3A46Z&amp;se=2024-09-19T16%3A03%3A46Z&amp;sp=r&amp;sv=2024-08-04&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=d505667d-d6c1-4a0a-bac7-5c84a87759f8&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2024-09-19T01%3A57%3A31Z&amp;ske=2024-09-20T01%3A57%3A31Z&amp;sks=b&amp;skv=2024-08-04&amp;sig=UEH%2BQrU/56uA%2BvV4JHpE3JZfZlxQX10C%2BZk1nlkM6kc%3D"/>
+        <img src="{% static 'adminmod/images/paper.png' %}" alt="Profile Picture Placeholder" height="20" width="20"/>
         </a>
      </div>
     </div>
@@ -65,7 +66,7 @@
        INSTRUCTOR
       </div>
       <a href="{% url 'useraccount' %}">
-        <img alt="Instructor icon" class="icon" src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-BVbpSZmLndA7MfHIxv2ahIKS/user-IBY8IaMXtVn7IVIdZeyvjx16/img-D1sgQi085sCQcKjWdF4nEKpd.png?st=2024-09-19T14%3A03%3A46Z&amp;se=2024-09-19T16%3A03%3A46Z&amp;sp=r&amp;sv=2024-08-04&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=d505667d-d6c1-4a0a-bac7-5c84a87759f8&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2024-09-19T01%3A57%3A31Z&amp;ske=2024-09-20T01%3A57%3A31Z&amp;sks=b&amp;skv=2024-08-04&amp;sig=UEH%2BQrU/56uA%2BvV4JHpE3JZfZlxQX10C%2BZk1nlkM6kc%3D"/>
+        <img src="{% static 'adminmod/images/paper.png' %}" alt="Profile Picture Placeholder" height="20" width="20"/>
         </a>
      </div>
     </div>
@@ -83,7 +84,7 @@
        GUARD
       </div>
       <a href="{% url 'useraccount' %}">
-        <img alt="Guard icon" class="icon" src="#"/>
+        <img src="{% static 'adminmod/images/paper.png' %}" alt="Profile Picture Placeholder" height="20" width="20"/>
         </a>
      </div>
     </div>

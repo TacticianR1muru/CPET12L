@@ -6,10 +6,11 @@
   </title>
  </head>
  <body>
+    {% load static %}
   <div class="container">
    <div class="header">
     <a href="{% url 'studentstatus' %}">
-    <img alt="Home" height="10" src="#" width="10"/>
+    <img src="{% static 'adminmod/images/home.png' %}" alt="Profile Picture Placeholder" height="30" width="30"/>
     </a>
     <h1>
      Monitor Report

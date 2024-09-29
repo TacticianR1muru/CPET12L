@@ -4,10 +4,11 @@
     <link rel="#" href="#">
  </head>
  <body>
+   {% load static %}
   <div class="container">
    <div class="header">
     <a href = {% url 'studentstatus'%}>
-    <img alt="Placeholder image" height="50" src="#" width="50"/>
+      <img src="{% static 'adminmod/images/arrow-left.png' %}" alt="Profile Picture Placeholder" height="30" width="30"/>
     </a>
     <h1>
      Important Notes

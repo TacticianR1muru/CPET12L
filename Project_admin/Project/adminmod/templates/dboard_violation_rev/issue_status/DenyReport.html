@@ -2,9 +2,13 @@
 <head>
 </head>
 <body>
+    {% load static %}
     <div class="container">
         <div class="header">
             <div></div>
+             <a href={% url 'dashboard'%}>
+                <img src="{% static 'adminmod/images/home.png' %}" alt="Profile Picture Placeholder" height="30" width="30"/>
+             </a>
             <h1>Deny Report</h1>
         </div>
         <div class="info">

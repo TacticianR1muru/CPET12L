@@ -4,10 +4,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
+    {% load static %}
     <div class="container">
         <div class="header">
             <a href={% url 'dashboard'%}>
-            <i class="fas fa-home"></i>
+                <img src="{% static 'adminmod/images/home.png' %}" alt="Profile Picture Placeholder" height="30" width="30"/>
             </a>
             <span>Modify Violation</span>
         </div>

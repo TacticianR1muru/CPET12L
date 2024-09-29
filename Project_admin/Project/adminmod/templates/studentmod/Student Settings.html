@@ -3,11 +3,11 @@
 <link rel="#" href="#">
  </head>
  <body>
-  <div class="container">
-   <div class="profile">
-    <a href="{% url 'studentstatus' %}">
-        <img alt="Home" height="10" src="#" width="10"/>
-    </a>
+    <body>
+        {% load static %}
+    <div class="container">
+     <div class="header">
+      <img src="{% static 'adminmod/images/profile.png' %}" alt="Profile Picture Placeholder" height="100" width="100"/>
     <div class="profile-info">
      <h1>
       Juan Dela Cruz

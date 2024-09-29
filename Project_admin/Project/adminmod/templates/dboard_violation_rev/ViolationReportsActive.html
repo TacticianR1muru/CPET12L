@@ -6,10 +6,11 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
  </head>
  <body>
+  {% load static %}
   <div class="container">
    <div class="header">
     <a href={% url 'dashboard'%}>
-        <i class="fas fa-home"></i>
+      <img src="{% static 'adminmod/images/home.png' %}" alt="Profile Picture Placeholder" height="30" width="30"/>
     </a>
     <h1>
      Violation Reports
@@ -69,7 +70,7 @@
      </div>
     </div>
     <div class="actions">
-      <a href="{% url 'SummaryActive' %}">
+      <a href="{% url 'reportsummarystudent' %}">
       <button>
       VIEW
      </button>
@@ -118,7 +119,7 @@
      </div>
     </div>
     <div class="actions">
-      <a href="{% url 'SummaryActive' %}">
+      <a href="{% url 'reportsummarystudent' %}">
         <button>
         VIEW
        </button>
@@ -166,7 +167,7 @@
      </div>
     </div>
     <div class="actions">
-      <a href="{% url 'SummaryActive' %}">
+      <a href="{% url 'reportsummarystudent' %}">
         <button>
         VIEW
        </button>
