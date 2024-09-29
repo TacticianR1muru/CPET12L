@@ -15,8 +15,9 @@
      Student Records
     </h1>
    </div>
+   {% load static %}
    <div class="buttons">
-    <img alt="Settings Icon Placeholder" class="settings-icon" height="20" src="https://placehold.co/20x20" width="20"/>
+    <img alt="Settings Icon Placeholder" class="settings-icon" height="20" src="{% static 'adminmod/images/settings-sliders.png' %}" width="20"/>
     <button>
      COURSE
     </button>
@@ -24,22 +25,25 @@
      YEAR
     </button>
    </div>
-   <div class="records">
+   {% load static %}
+<div class="records">
     <div class="record">
         <a href="{% url 'studlist' %}">
-     <img alt="Student Image Placeholder" height="100" src="https://placehold.co/100x100" width="100"/>
-     </a>
-     <a href="{% url 'editcourse' %}">
-     <i class="fas fa-pencil-alt edit-icon"></i>
-     </a>
+            <img alt="Student Image Placeholder" height="100" src="{% static 'adminmod/images/folder.png' %}" width="100"/>
+        </a>
+        <a href="{% url 'editcourse' %}">
+            <i class="fas fa-pencil-alt edit-icon"></i>
+        </a>
+    </div>
+</div>
      <p>
       Course &amp; Year
      </p>
     </div>
     <div class="record">
         <a href="{% url 'studlist' %}">
-            <img alt="Student Image Placeholder" height="100" src="https://placehold.co/100x100" width="100"/>
-            </a>
+            <img alt="Student Image Placeholder" height="100" src="{% static 'adminmod/images/folder.png' %}" width="100"/>
+        </a>
             <a href="{% url 'editcourse' %}">
         <i class="fas fa-pencil-alt edit-icon"></i>
      </a>
@@ -49,8 +53,8 @@
     </div>
     <div class="record">
         <a href="{% url 'studlist' %}">
-            <img alt="Student Image Placeholder" height="100" src="https://placehold.co/100x100" width="100"/>
-            </a>
+            <img alt="Student Image Placeholder" height="100" src="{% static 'adminmod/images/folder.png' %}" width="100"/>
+        </a>
             <a href="{% url 'editcourse' %}">
         <i class="fas fa-pencil-alt edit-icon"></i>
      </a>
@@ -60,8 +64,8 @@
     </div>
     <div class="record">
         <a href="{% url 'studlist' %}">
-            <img alt="Student Image Placeholder" height="100" src="https://placehold.co/100x100" width="100"/>
-            </a>
+            <img alt="Student Image Placeholder" height="100" src="{% static 'adminmod/images/folder.png' %}" width="100"/>
+        </a>
             <a href="{% url 'editcourse' %}">
         <i class="fas fa-pencil-alt edit-icon"></i>
      </a>
@@ -71,8 +75,8 @@
     </div>
     <div class="record">
         <a href="{% url 'studlist' %}">
-            <img alt="Student Image Placeholder" height="100" src="https://placehold.co/100x100" width="100"/>
-            </a>
+            <img alt="Student Image Placeholder" height="100" src="{% static 'adminmod/images/folder.png' %}" width="100"/>
+        </a>
             <a href="{% url 'editcourse' %}">
         <i class="fas fa-pencil-alt edit-icon"></i>
      </a>
@@ -82,8 +86,8 @@
     </div>
     <div class="record">
         <a href="{% url 'studlist' %}">
-            <img alt="Student Image Placeholder" height="100" src="https://placehold.co/100x100" width="100"/>
-            </a>
+            <img alt="Student Image Placeholder" height="100" src="{% static 'adminmod/images/folder.png' %}" width="100"/>
+        </a>
             <a href="{% url 'editcourse' %}">
         <i class="fas fa-pencil-alt edit-icon"></i>
      </a>
