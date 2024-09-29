@@ -4,13 +4,13 @@
  <body>
   <div class="container">
    <div class="button-group">
-    <a href="#">
+    <a href="{% url 'guardsearch2' %}">
     <button class="button">
      <img alt="Icon" height="20" src="#" width="20"/>
      REPORT FILING
     </button>
     </a>
-    <a href="#">
+    <a href="{% url 'notif' %}">
       <button class="button">
        <img alt="Icon" height="20" src="#" width="20"/>
        REPORT STATUS
@@ -28,10 +28,11 @@
     </div>
     <div class="search-container">
      <input type="text" value="ID-XX-XXXX"/>
-     <button class="search-button">
+     <a href="{% url 'addstudent' %}"><button class="search-button">
       SEARCH
      </button>
     </div>
+    </a>
    </div>
    <div class="input-group">
     <div class="label">
@@ -46,9 +47,10 @@
     </div>
     <input type="text"/>
    </div>
-   <button class="submit-button">
+   <a href="{% url 'reportsummary' %}"><button class="submit-button">
     SUBMIT
    </button>
   </div>
+  </a>
  </body>
 </html>
