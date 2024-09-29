@@ -8,8 +8,9 @@
  <body>
   <div class="container">
    <div class="header">
+    {% load static %}
     <a href="{% url 'dashboard' %}">
-        <i class="fas fa-home"></i>
+        <img src="{% static 'adminmod/images/home.png' %}" alt="Profile Picture Placeholder" height="20" width="20"/>
     </a>
     <h1>
      Student Records
