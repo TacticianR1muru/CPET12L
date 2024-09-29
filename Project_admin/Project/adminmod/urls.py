@@ -29,6 +29,7 @@ urlpatterns = [
     #modify_status
     path('ModifyExpulsion/', views.ModifyExpulsion, name='ModifyExpulsion'),
     path('ModifySuspension/', views.ModifySuspension, name='ModifySuspension'),
+    path('ProbationProgress/', views.ProbationProgress, name='ProbationProgress'),
     
     #dboard_modify_violation
     path('ModifyViolation/', views.ModifyViolation, name='ModifyViolation'),
@@ -45,6 +46,7 @@ urlpatterns = [
     path("editlist/", views.editlist, name="editlist"),
     path("addcourse/", views.addcourse, name="addcourse"),
     path("editcourse/", views.editcourse, name="editcourse"),
+    
     #user_role
     path("userrole/", views.userrole, name="userrole"),
     path("edituserrole/", views.edituserrole, name="edituserrole"),
