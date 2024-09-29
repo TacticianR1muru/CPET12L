@@ -48,12 +48,13 @@ def SummaryInactive(request):
     return render(request, 'dboard_violation_rev/summary_report/ReportSummary2.html')
 
 #modify_stat dboard_violation_rev/summary_issue/
+#modify_stat dboard_violation_rev/summary_issue/
 def ModifyExpulsion(request):
-    return render(request, 'dboard_violation_rev/summary_issue/ModifyExpulsion.html')
+    return render(request, 'dboard_violation_rev/modify_issue/ModifyExpulsion.html')
 def ModifySuspension(request):
-    return render(request, 'dboard_violation_rev/summary_issue/ModifySuspension.html')
+    return render(request, 'dboard_violation_rev/modify_issue/ModifySuspension.html')
 def ProbationProgress(request):
-    return render(request, 'dboard_violation_rev/summary_issue/ProbationProgress.html'),
+    return render(request, 'dboard_violation_rev/modify_issue/ProbationProgress.html')
 
 # ------ Modify Violation ------
 #dboard_modify
