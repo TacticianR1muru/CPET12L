@@ -42,6 +42,10 @@ def SummarySuspension(request):
     return render(request, 'dboard_violation_rev/summary_report/SummarySuspension.html')
 def SummaryExpulsion(request):
     return render(request, 'dboard_violation_rev/summary_report/SummaryExpulsion.html')
+def SummaryActive(request):
+    return render(request, 'dboard_violation_rev/summary_report/ReportSummary1.html')
+def SummaryInactive(request):
+    return render(request, 'dboard_violation_rev/summary_report/ReportSummary2.html')
 
 #modify_stat dboard_violation_rev/summary_issue/
 def ModifyExpulsion(request):

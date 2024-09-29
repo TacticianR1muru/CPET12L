@@ -25,6 +25,8 @@ urlpatterns = [
     path('SummaryProbation/', views.SummaryProbation, name='SummaryProbation'),
     path('SummarySuspension/', views.SummarySuspension, name='SummarySuspension'),
     path('SummaryExpulsion/', views.SummaryExpulsion, name='SummaryExpulsion'), 
+    path('SummaryInactive/', views.SummaryInactive, name='SummaryInactive'),
+    path('SummaryActive/', views.SummaryActive, name='SummaryActive'),
     
     #modify_status
     path('ModifyExpulsion/', views.ModifyExpulsion, name='ModifyExpulsion'),
