@@ -5,6 +5,7 @@
         <link rel="#" href="#">
     </head>
     <body>
+        {% load static %}
         <div class="nav-buttons">
            <a href="{% url 'guardsearch2' %}">
             <button><i class="fas fa-times-circle"></i> REPORT FILING</button>
@@ -15,7 +16,7 @@
         </div>
         <div class="log-out">
             <a href="#">
-                <img alt="Logout" height="20" src="#" width="20"/>
+            <img src="{% static 'adminmod/images/sign-out-alt.png' %}" alt="Profile Picture Placeholder" height="30" width="30"/>
             </a> 
           </div>
         <div>
