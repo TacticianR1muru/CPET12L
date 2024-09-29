@@ -5,11 +5,11 @@
   </title>
  </head>
  <body>
-  <div class="container">
-   <img alt="Profile Picture Placeholder" height="100" src= '#' width="100"/>
-   <h1>
-    WELCOME!
-   </h1>    
+    {% load static %}
+<div class="container">
+    <img src="{% static 'adminmod/images/logo.png' %}" alt="Profile Picture Placeholder" height="100" width="100"/>
+    <h1>WELCOME!</h1>
+</div>   
    <hr/>
    <label for="id-number">
     ID Number:
