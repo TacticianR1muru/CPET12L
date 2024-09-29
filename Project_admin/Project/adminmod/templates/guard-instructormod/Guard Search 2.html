@@ -7,13 +7,13 @@
    <div class="button-group">
     <a href="{% url 'guardsearch2' %}">
     <button class="button">
-     <img alt="Icon" height="20" src="#" width="20"/>
+      <img src="{% static 'adminmod/images/foldericon.png' %}" alt="Profile  Picture Placeholder" height="30" width="30"/>
      REPORT FILING
     </button>
     </a>
     <a href="{% url 'notif' %}">
       <button class="button">
-       <img alt="Icon" height="20" src="#" width="20"/>
+        <img src="{% static 'adminmod/images/paper.png' %}" alt="Profile  Picture Placeholder" height="30" width="30"/>
        REPORT STATUS
       </button>
     </a>
@@ -42,7 +42,7 @@
     <div class="label">
      Incident Date
     </div>
-    <input type="text"/>
+    <input type="date"/>
     <div class="label">
      Violation Type:
     </div>

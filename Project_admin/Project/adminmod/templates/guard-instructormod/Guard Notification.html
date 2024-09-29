@@ -8,11 +8,17 @@
         {% load static %}
         <div class="nav-buttons">
            <a href="{% url 'guardsearch2' %}">
-            <button><i class="fas fa-times-circle"></i> REPORT FILING</button>
-           </a> 
-           <a href="{% url 'notif' %}">
-            <button><i class="fas fa-times-circle"></i> REPORT STATUS</button>
-           </a> 
+            <button class="button">
+                <img src="{% static 'adminmod/images/foldericon.png' %}" alt="Profile  Picture Placeholder" height="30" width="30"/>
+               REPORT FILING
+              </button>
+              </a>
+              <a href="{% url 'notif' %}">
+                <button class="button">
+                  <img src="{% static 'adminmod/images/paper.png' %}" alt="Profile  Picture Placeholder" height="30" width="30"/>
+                 REPORT STATUS
+                </button>
+              </a>
         </div>
         <div class="log-out">
             <a href="#">
