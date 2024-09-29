@@ -15,7 +15,7 @@
       Juan Dela Cruz
      </div>
      <div class="log-out">
-       <a href="#">
+      <a href="{% url 'login' %}">
         <img alt="Sign Out" height="20" src="#" width="20"/>
        </a> 
      </div>
@@ -50,7 +50,7 @@
       Offense: mm/dd/yyyy
      </div>
      <div class="Info">
-        <a href="#"><img alt="Warning Icon" height="50" src="#" width="50"/></a>
+      <a href="{% url 'infopopup' %}"><img alt="Warning Icon" height="50" src="#" width="50"/></a>
         <div class="text">
      <div>
       Sanction: Sanction
@@ -82,7 +82,7 @@
    </div>
   </a>
    <div class="warning">
-    <a href="{% url 'infopopup' %}"><img alt="Warning Icon" height="50" src="#" width="50"/></a>
+    <a href="{% url 'Infopopup2' %}"><img alt="Warning Icon" height="50" src="#" width="50"/></a>
     <div class="text">
      <div>
       Warning
