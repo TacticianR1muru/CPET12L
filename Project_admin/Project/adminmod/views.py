@@ -79,13 +79,13 @@ def addlist(request):
     return render(request, 'studrec/Addlist.html')    
 # ------ User Roles ------
 def userrole(request):
-    return render(request, 'studrec/Account List.html') 
+    return render(request, 'user_role/Account List.html') 
 def edituserrole(request):
-    return render(request, 'studrec/Edit User Role.html')
+    return render(request, 'user_role/Edit User Role.html')
 def adduser(request):
-    return render(request, 'studrec/Add User.html')
+    return render(request, 'user_role/Add User.html')
 def useraccount(request):
-    return render(request, 'studrec/UserAccount.html')
+    return render(request, 'user_role/UserAccount.html')
 #------ Login ------
 def login(request):
     return render(request, 'login/LOGIN.html')
