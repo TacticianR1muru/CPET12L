@@ -1,0 +1,135 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.container {
+    background-color: white;
+    width: 800px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.header i {
+    font-size: 24px;
+    margin-right: 10px;
+}
+.header h1 {
+    font-size: 24px;
+    margin: 0;
+    flex-grow: 1;
+}
+.search-bar {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+.search-bar input {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.tabs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.tabs div {
+    background-color: #e0e0e0;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+.tabs div.active {
+    background-color: #ccc;
+}
+.content {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+.content img {
+    width: 100px;
+    height: 100px;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+.content .info {
+    flex-grow: 1;
+}
+.content .info p {
+    margin: 5px 0;
+}
+.content .actions {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.content .actions button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+.content .actions button.view {
+    background-color: #007bff;
+    color: white;
+}
+.content .actions button.approve {
+    background-color: #28a745;
+    color: white;
+}
+.content .actions button.reject {
+    background-color: #dc3545;
+    color: white;
+}
+.confirm {
+    display: flex;
+    justify-content: center;
+}
+.confirm button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ccc;
+    cursor: pointer;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.dropdown-content div {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+.dropdown-content div:hover {
+    background-color: #f1f1f1;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.dropdown:hover .dropbtn {
+    background-color: #ccc;
+}
