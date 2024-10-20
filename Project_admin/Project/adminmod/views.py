@@ -1,5 +1,10 @@
 from django.shortcuts import render
 from django.shortcuts import HttpResponse
+import random
+import string
+from .forms import UserForm
+from .models import User
+from django.http import JsonResponse
 
 # Create your views here.
 
@@ -97,8 +102,70 @@ def userrole(request):
     return render(request, 'user_role/Account List.html') 
 def edituserrole(request):
     return render(request, 'user_role/Edit User Role.html')
+
+def generate_random_password():
+    # Function to generate a random password
+    return ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(10))
+
 def adduser(request):
-    return render(request, 'user_role/Add User.html')
+    if request.method == 'POST':
+        form = UserForm(request.POST)
+        if form.is_valid():
+            # Process form data if valid
+            employee_id = form.cleaned_data['employee_id']
+            employee_name = form.cleaned_data['employee_name']
+            position = form.cleaned_data['position']
+
+            try:
+                first_name, last_name = employee_name.split(' ')
+            except ValueError:
+                # Handle cases where there isn't a proper "First Last" format
+                first_name, last_name = employee_name, ""
+
+            # Generate email based on first and last name
+            email = f"{last_name.lower()}.{first_name.lower()}@email.com" if last_name else f"{first_name.lower()}@email.com"
+            
+            password = ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(10))
+
+            # Create user
+            user = User.objects.create(
+                employee_id=employee_id,
+                employee_name=employee_name,
+                email=email,
+                password=password,
+                position=position,
+            )
+            
+            # Pass generated email and password to the template
+            return render(request, 'user_role/Add User.html', {
+                'form': form,
+                'generated_email': email,
+                'generated_password': password
+            })
+        else:
+            return render(request, 'user_role/Add User.html', {'form': form})
+
+    # Generate a random password for the initial GET request
+    password = generate_random_password()
+    return render(request, 'user_role/Add User.html', {
+        'form': UserForm(),
+        'generated_password': password
+    })
+
+# View for generating a new password via AJAX
+def retry_password(request):
+    if request.method == 'GET':
+        new_password = generate_random_password()
+        return JsonResponse({'generated_password': new_password})
+
+    # If GET request or form is invalid, re-render the empty form
+    #return render(request, 'user_role/Add User.html', {'form': UserForm()})
+
+
+
+
+
+
 def useraccount(request):
     return render(request, 'user_role/UserAccount.html')
 #------ Login ------

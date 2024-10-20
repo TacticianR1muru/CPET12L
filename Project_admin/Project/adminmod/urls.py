@@ -55,6 +55,9 @@ urlpatterns = [
     path("edituserrole/", views.edituserrole, name="edituserrole"),
     path("adduserrole/", views.adduser, name="adduserrole"),
     path("useraccount/",views.useraccount, name="useraccount"),
+    
+    path('retry-password/', views.retry_password, name='retry_password'),
+    
 
     #login
     path('', views.login, name='login'),

@@ -1,71 +1,68 @@
 <!DOCTYPE html>
- <head>
-  <title>
-   Add User
-  </title>
- </head>
- <body>
+<head>
+    <title>Add User</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
     {% load static %}
-  <div class="container">
-   <div class="header">
-    <a href="{% url 'userrole' %}">
-    <img src="{% static 'adminmod/images/arrow-left.png' %}" alt="Profile Picture Placeholder" height="30" width="30"/>
-    </a>
-    <h1>
-     Add User
-    </h1>
-   </div>
-   <hr/>
-   <div class="form-group">
-    <label for="employee-id">
-     Employee ID:
-    </label>
-    <input id="employee-id" type="text"/>
-   </div>
-   <div class="form-group">
-    <label for="employee-name">
-     Employee Name:
-    </label>
-    <input id="employee-name" type="text"/>
-   </div>
-   <div class="form-group">
-    <label for="generated-email">
-     Generated Email:
-    </label>
-    <div class="generated-email">
-     lastname.firstname@email.com
+    <div class="container">
+        <div class="header">
+            <a href="{% url 'userrole' %}">
+                <img src="{% static 'adminmod/images/arrow-left.png' %}" alt="Profile Picture Placeholder" height="30" width="30"/>
+            </a>
+            <h1>Add User</h1>
+        </div>
+        <hr/>
+
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="employee-id">Employee ID:</label>
+                {{ form.employee_id }}
+                {{ form.employee_id.errors }}
+            </div>
+
+            <div class="form-group">
+                <label for="employee-name">Employee Name:</label>
+                {{ form.employee_name }}
+                {{ form.employee_name.errors }}
+            </div>
+
+            <div class="form-group position-group">
+                <label for="position">Position:</label>
+                {{ form.position }}
+                {{ form.position.errors }}
+            </div>
+
+            <div class="form-group">
+                <label for="generated-email">Generated Email:</label>
+                <input type="text" id="generated-email" value="{{ generated_email|default:'lastname.firstname@email.com' }}" readonly/>
+            </div>
+
+            <div class="form-group">
+                <label for="generated-password">Generated Password:</label>
+                <div class="generated-password">
+                    <input type="text" id="generated-password" value="{{ generated_password|default:'randompassword' }}" readonly/>
+                    <button type="button" id="retry-password">Retry</button>
+                </div>
+            </div>
+
+            <button type="submit" class="done-button">DONE</button>
+        </form>
     </div>
-   </div>
-   <div class="form-group">
-    <label for="generated-password">
-     Generated Password:
-    </label>
-    <div class="generated-password">
-     <input id="generated-password" placeholder="randompassword" type="text"/>
-     <div class="placeholder-icon">
-      <img alt="Logo" height="20" src="{% static 'adminmod/images/reload.png' %}" width="20"/>
-     </div>
-    </div>
-   </div>
-   <div class="form-group position-group">
-    <label for="position">
-     Position:
-    </label>
-    <select id="position">
-     <option value="guard">
-      GUARD
-     </option>
-     <option value="admin">
-      ADMIN
-     </option>
-     <option value="instructor">
-      INSTRUCTOR
-     </option>
-    </select>
-   </div>
-   <button class="done-button">
-    DONE
-   </button>
-  </div>
- </body>
+
+    <script>
+        // JavaScript to handle the retry button click and get a new password
+        $('#retry-password').click(function() {
+            $.ajax({
+                url: "{% url 'retry_password' %}",  // Update this URL with the correct path to your retry_password view
+                method: "GET",
+                success: function(data) {
+                    // Update the password field with the newly generated password
+                    $('#generated-password').val(data.generated_password);
+                }
+            });
+        });
+    </script>
+</body>
 </html>
