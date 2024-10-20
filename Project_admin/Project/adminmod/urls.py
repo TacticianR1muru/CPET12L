@@ -77,10 +77,16 @@ urlpatterns = [
     path("infopopup3/", views.infopopup3, name="infopopup3"), 
 
     #guard and instructor mod
+    path('manage-violations/', views.manage_violations, name='manage_violations'),
+    path('edit-violation/<int:violation_id>/', views.edit_violation, name='edit_violation'),  
+    path('report-success/', views.report_success, name='report_success'),
+    path('report-summary/', views.report_summary, name='report_summary'),
     path('addstudent/', views.addstudent, name='addstudent'),
     path('notif/', views.notif, name='notif'),
     path('reportsummary/', views.reportsummary, name='reportsummary'),
     path('guardsearch/',  views.guardsearch, name='guardsearch'),
     path('guardsearch2/',   views.guardsearch2, name='guardsearch2'),
-    
+    path('manage_dropdown/', views.manage_dropdown, name='manage_dropdown'),
+    path('registration_success/', views.registration_success, name='registration_success'),
+    path('file-report/', views.file_report, name='file_report'),
 ]

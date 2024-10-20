@@ -1,10 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.shortcuts import HttpResponse
+from django.http import JsonResponse
+from .forms import SignupNow, ReportForm, ViolationTypeForm, UserForm
+from .models import DropdownOption, Signup, Course, Section, Report, ViolationType, User
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 import random
 import string
-from .forms import UserForm
-from .models import User
-from django.http import JsonResponse
 
 # Create your views here.
 
@@ -172,8 +174,172 @@ def useraccount(request):
 def login(request):
     return render(request, 'login/LOGIN.html')
 
+#def signup(request):
+    #if request.method == "POST":
+        #form = SignupNow(request.POST)
+        #form.save()
+        #return redirect("/")
+    #else:
+        #form = SignupNow()
+    #return render(request, 'login/Sign-up.html', {"form": form})
+
+#################################
+
 def signup(request):
-    return render(request, 'login/Sign-up.html')
+    if request.method == "POST":
+        form = SignupNow(request.POST, request.FILES)
+        
+        if form.is_valid():
+            form.save()
+            return redirect('registration_success')  # Ensure you create this page or change this to your homepage
+
+    else:
+        form = SignupNow()
+
+    return render(request,'login/Sign-up.html', {'form': form})
+
+
+def manage_dropdown(request):
+    if request.method == 'POST':
+        # Add a new program
+        if 'add_program' in request.POST:
+            new_program = request.POST.get('new_program')
+            if new_program:
+                DropdownOption.objects.create(program1=new_program)
+                return redirect('manage_dropdown')
+
+        # Add a new course
+        if 'add_course' in request.POST:
+            new_course = request.POST.get('new_course')
+            program_id = request.POST.get('program_id')
+            if new_course and program_id:
+                program = DropdownOption.objects.get(id=program_id)
+                Course.objects.create(program=program, course_name=new_course)
+                return redirect('manage_dropdown')
+
+        # Add a new section
+        if 'add_section' in request.POST:
+            new_section = request.POST.get('new_section')
+            course_id = request.POST.get('course_id')
+            if new_section and course_id:
+                course = Course.objects.get(id=course_id)
+                Section.objects.create(course=course, section_name=new_section)
+                return redirect('manage_dropdown')
+
+        # Delete a program
+        if 'delete_program' in request.POST:
+            program_id = request.POST.get('delete_program')
+            DropdownOption.objects.filter(id=program_id).delete()
+            return redirect('manage_dropdown')
+
+        # Delete a course
+        if 'delete_course' in request.POST:
+            course_id = request.POST.get('delete_course')
+            Course.objects.filter(id=course_id).delete()
+            return redirect('manage_dropdown')
+
+        # Delete a section
+        if 'delete_section' in request.POST:
+            section_id = request.POST.get('delete_section')
+            Section.objects.filter(id=section_id).delete()
+            return redirect('manage_dropdown')
+
+    # Fetch all options for the dropdowns
+    program_options = DropdownOption.objects.all()
+    course_options = Course.objects.all()
+    section_options = Section.objects.all()
+
+    return render(request, 'manage_dropdown.html', {
+        'program_options': program_options,
+        'course_options': course_options,
+        'section_options': section_options,
+    })
+
+# Report filing view for Guards
+def file_report(request):
+    if request.method == 'POST':
+        # Get form data directly from POST
+        student_id = request.POST.get('student')
+        incident_date = request.POST.get('incident_date')
+        violation_type_id = request.POST.get('violation_type')
+        
+        try:
+            # Get the related objects
+            student = Signup.objects.get(id=student_id)
+            violation_type = ViolationType.objects.get(id=violation_type_id)
+            
+            # Prepare data for summary
+            context = {
+                'student_id': student.idnumber,
+                'student_name': f"{student.first_name} {student.last_name}",
+                'incident_date': incident_date,
+                'violation_type': violation_type.name,
+                # Store IDs for database insertion
+                'db_student_id': student_id,
+                'db_violation_type_id': violation_type_id
+            }
+            return render(request, 'report_summary.html', context)
+        except (Signup.DoesNotExist, ViolationType.DoesNotExist) as e:
+            return HttpResponse(f"Error: {str(e)}", status=400)
+
+    # GET request - show the form
+    violation_types = ViolationType.objects.all()
+    students = Signup.objects.all()
+    return render(request, 'file_report.html', {
+        'violation_types': violation_types,
+        'students': students
+    })
+
+
+def report_summary(request):
+    if request.method == 'POST':
+        if 'confirm_submission' in request.POST:
+            try:
+                # Create and save the report
+                report = Report.objects.create(
+                    student_id=request.POST.get('db_student_id'),
+                    incident_date=request.POST.get('incident_date'),
+                    violation_type_id=request.POST.get('db_violation_type_id')
+                )
+                return redirect('report_success')
+            except Exception as e:
+                return HttpResponse(f"Error saving report: {str(e)}", status=500)
+        
+        elif 'cancel_submission' in request.POST:
+            return redirect('file_report')
+    
+    return redirect('file_report')
+
+def report_success(request):
+    return render(request, 'report_success.html')
+
+# Manage Violations (for admins)
+def manage_violations(request):
+    violations = ViolationType.objects.all()
+    if request.method == 'POST':
+        form = ViolationTypeForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('manage_violations')
+    else:
+        form = ViolationTypeForm()
+
+    return render(request, 'manage_violations.html', {'form': form, 'violations': violations})
+
+# Edit Violation
+def edit_violation(request, violation_id):
+    violation = ViolationType.objects.get(id=violation_id)
+    if request.method == 'POST':
+        form = ViolationTypeForm(request.POST, instance=violation)
+        if form.is_valid():
+            form.save()
+            return redirect('manage_violations')
+    else:
+        form = ViolationTypeForm(instance=violation)
+
+    return render(request, 'edit_violation.html', {'form': form, 'violation': violation})
+
+
 
 def reset(request):
     return render(request, 'login/Reset Password.html')
@@ -222,3 +388,10 @@ def notif(request):
 
 def reportsummary(request):
     return render(request, 'guard-instructormod/Guard Report Summary.html')
+
+
+def registration_success(request):
+    return render(request, 'registration_success.html')
+
+def report_success(request):
+    return render(request, 'report_success.html')
