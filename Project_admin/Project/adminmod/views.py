@@ -20,7 +20,7 @@ def SummaryActive(request):
 def SummaryInactive(request):
     return render(request, 'dboard_violation_rev/ReportSummary2.html')
 def ViolationReportsActive(request):
-    return render(request, 'dboard_violation_rev/ViolationReportsActive.html')
+    return render(request, 'violationreports.html')
 def ViolationReportsWarning(request):
     return render(request, 'dboard_violation_rev/ViolationReportsWarning.html')
 def ViolationReportsProbation(request):
