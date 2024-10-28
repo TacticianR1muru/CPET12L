@@ -82,3 +82,13 @@ class User(models.Model):
 
     def __str__(self):
         return self.employee_name
+    
+class DenyReport(models.Model):
+    date = models.DateField()
+    student_id = models.CharField(max_length=20)
+    violation = models.CharField(max_length=100)
+    violation_type = models.CharField(max_length=100)
+    reasons = models.TextField()
+
+    def __str__(self):
+        return f"Report for Student ID: {self.student_id} on {self.date}"

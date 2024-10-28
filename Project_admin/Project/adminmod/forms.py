@@ -1,5 +1,5 @@
 from django import forms
-from .models import Signup, DropdownOption, Course, Section, Report, ViolationType,User
+from .models import Signup, DropdownOption, Course, Section, Report, ViolationType,User, DenyReport
 from django.forms import ModelForm
 import random
 import string
@@ -40,3 +40,15 @@ class UserForm(forms.ModelForm):
         if User.objects.filter(employee_id=employee_id).exists():
             raise forms.ValidationError("Employee ID already exists.")
         return employee_id
+
+class DenyReportForm(forms.ModelForm):
+    class Meta:
+        model = DenyReport
+        fields = ['date', 'student_id', 'violation', 'violation_type', 'reasons']
+        labels = {
+            'reasons': 'Reason(s) for denying this report:',
+        }
+        widgets = {
+            'date': forms.DateInput(attrs={'type': 'date'}),
+            'reasons': forms.Textarea(attrs={'rows': 4}),
+        }

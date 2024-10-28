@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404
 from django.shortcuts import HttpResponse
 from django.http import JsonResponse
-from .forms import SignupNow, ReportForm, ViolationTypeForm, UserForm
+from .forms import SignupNow, ReportForm, ViolationTypeForm, UserForm, DenyReportForm
 from .models import DropdownOption, Signup, Course, Section, Report, ViolationType, User
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -42,7 +43,14 @@ def IssueSuspension(request):
 def IssueExpulsion(request):
     return render(request, 'dboard_violation_rev/issue_status/IssueExpulsion.html')
 def DenyReport(request):
-    return render(request, 'dboard_violation_rev/issue_status/DenyReport.html')
+    if request.method == 'POST':
+        form = DenyReportForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('success')  # Redirect to a success page or desired URL
+    else:
+        form = DenyReportForm()
+    return render(request, 'dboard_violation_rev/issue_status/DenyReport.html',{'form': form})
 
 #summary_report dboard_violation_rev/summary_report/
 def SummaryWarning(request):
@@ -289,6 +297,19 @@ def file_report(request):
         'violation_types': violation_types,
         'students': students
     })
+
+def deny_report(request, report_id):
+    # Retrieve the report instance by its ID
+    report = get_object_or_404(Report, id=report_id)
+    
+    # Pass the report details to the template
+    context = {
+        'student_id': report.student.idnumber,
+        'student_name': f"{report.student.first_name} {report.student.last_name}",
+        'incident_date': report.incident_date,
+        'violation_type': report.violation_type.name,
+    }
+    return render(request, 'denyreport.html', context)
 
 
 def report_summary(request):

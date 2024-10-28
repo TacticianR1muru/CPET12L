@@ -1,40 +1,50 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <title>Deny Report</title>
 </head>
 <body>
     {% load static %}
     <div class="container">
         <div class="header">
             <div></div>
-             <a href={% url 'dashboard'%}>
+            <a href="{% url 'dashboard' %}">
                 <img src="{% static 'adminmod/images/home.png' %}" alt="Profile Picture Placeholder" height="30" width="30"/>
-             </a>
+            </a>
             <h1>Deny Report</h1>
         </div>
+
         <div class="info">
             <div>
                 <p>Date:</p>
+                <p>{{ incident_date }}</p>
             </div>
             <div>
                 <p>Student ID:</p>
-                <p>Violation:</p>
+                <p>{{ student_id }}</p>
+                <p>Student Name:</p>
+                <p>{{ student_name }}</p>
                 <p>Violation Type:</p>
-            </div>
-            <div>
-                <p>Reported By:</p>
+                <p>{{ violation_type }}</p>
             </div>
         </div>
+        
         <hr/>
-        <div class="textarea-container">
-            <label for="reason">Reason/s for denying this report:</label>
-            <textarea id="reason"></textarea>
-        </div>
-        <div class="buttons">
-           <a href={% url 'ViolationReportsActive'%}>
-            <button>BACK</button>
-           </a> 
-            <button>SUBMIT</button>
-        </div>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="textarea-container">
+                <label for="id_reasons">Reason/s for denying this report:</label>
+                <textarea id="id_reasons" name="reasons" rows="4"></textarea>
+            </div>
+            <div class="buttons">
+                <a href="{% url 'ViolationReportsActive' %}">
+                    <button type="button">BACK</button>
+                </a>
+                <button type="submit">SUBMIT</button>
+            </div>
+        </form>
     </div>
 </body>
 </html>
+S
