@@ -1,10 +1,5 @@
-<!DOCTYPE html>
- <head>
-  <title>
-   Login Page
-  </title>
- </head>
- <body>
+{% extends "main.html" %}
+{% block content %}
     {% load static %}
 <div class="container">
     <img src="{% static 'adminmod/images/logo.png' %}" alt="Profile Picture Placeholder" height="100" width="100"/>
@@ -28,4 +23,4 @@
    </div>
   </div>
  </body>
-</html>
+ {% endblock content%}

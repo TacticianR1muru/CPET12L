@@ -1,0 +1,190 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header Section */
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.profile-picture {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.info h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.info p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.logout {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  color: #333;
+  text-decoration: none;
+}
+
+.logout-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+/* Navigation Buttons */
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.button {
+  background-color: #f2f2f2;
+  border: none;
+  color: #333;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.button.status {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.button.password {
+  background-color: #007bff;
+  color: #fff;
+}
+
+/* Offense Section */
+.offense-section {
+  margin-bottom: 20px;
+}
+
+.offense-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f2f2f2;
+  padding: 10px;
+}
+
+.offense-item {
+  display: flex;
+  align-items: center;
+}
+
+.offense-item p {
+  margin: 0 10px 0 0;
+}
+
+.info-icon {
+  background-color: #007bff;
+  color: #fff;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Remaining Days Section */
+.remaining-days {
+  margin-bottom: 20px;
+}
+
+.days-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  background-color: #f2f2f2;
+  padding: 10px;
+}
+
+.days-grid div {
+  text-align: center;
+}
+
+/* Submit Monitor Report Button */
+.submit-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+/* Warning Section */
+.warning-section {
+  margin-bottom: 20px;
+}
+
+.warning-content {
+  display: flex;
+  align-items: center;
+  background-color: #f2f2f2;
+  padding: 10px;
+}
+
+.warning-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.warning-text strong {
+  color: #ff0000;
+}
+
+/* Offenses Table */
+.offenses {
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.view-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 5px 10px;
+  text-decoration: none;
+}

@@ -1,0 +1,100 @@
+{% extends "main.html" %}
+{% block content %}
+<body>
+    <div class="container">
+        <div class="header">
+         <i class="fas fa-home"></i>
+         <h1>
+            Violation Reports
+         </h1>
+         <div class="filters-container">
+            <div class="filter">
+                <label for="filter-status">Status:</label>
+                <select id="filter-status" name="filter-status">
+                    <option value="">All</option>
+                    <option value="Active">Active</option>
+                    <option value="ON HOLD">ON HOLD</option>
+                    <option value="Resolved">Resolved</option>
+                </select>
+            </div>
+            <div class="filter">
+                <label for="filter-program">Program:</label>
+                <select id="filter-program" name="filter-program">
+                    <option value="">All</option>
+                    <option value="Computer Science">Computer Science</option>
+                    <option value="Biology">Biology</option>
+                    <option value="Chemistry">Chemistry</option>
+                    <option value="Mathematics">Mathematics</option>
+                </select>
+            </div>
+            <div class="filter">
+                <label for="filter-date">Month & Year:</label>
+                <input type="month" id="filter-date" name="filter-date">
+            </div>
+            <div class="filter">
+                <label for="filter-violation">Violation:</label>
+                <select id="filter-violation" name="filter-violation">
+                    <option value="">None</option>
+                </select>
+            </div>
+            <div class="filter">
+                <label for="filter-sanction">Sanction:</label>
+                <select id="filter-sanction" name="filter-sanction">
+                    <option value="">All</option>
+                    <option value="WARNING">WARNING</option>
+                    <option value="PROBATION">PROBATION</option>
+                    <option value="SUSPENSION">SUSPENSION</option>
+                    <option value="EXPULSION">EXPULSION</option>
+                </select>
+            </div>
+            <button>Apply</button>
+        </div>        
+     
+    <table class="table">
+        <thead>
+            <tr>
+                <th>DATE</th>
+                <th>Student ID</th>
+                <th>Violation</th>
+                <th>Violation Type</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td scope="row">Oct 16</td>
+                <td>TUPC-XXXX</td>
+                <td>Haircut</td>
+                <td>Minor</td>
+                <td><form>
+                    <input type ='button' value = 'VIEW' />
+                    <select id='active' name='active'>
+                        <option value="ON HOLD">ON HOLD</option>
+                        <option value="Resolved">Resolved</option>
+                        <option value="Deny">Deny</option>
+                        <hr>
+                        <option value="MODIFY">MODIFY</option>
+                        <option value="REMOVE">REMOVE</option>
+                    </select></td>
+                </form>
+            </tr>
+            <tr>
+                <td scope="row">Oct 17</td>
+                <td>TUPC-XXXX</td>
+                <td>Haircut</td>
+                <td>Minor</td>
+                <td><form>
+                    <input type ='button' value = 'VIEW' />
+                    <select id='active' name='active'>
+                        <option value="ON HOLD">ON HOLD</option>
+                        <option value="Resolved">Resolved</option>
+                        <option value="Deny">Deny</option>
+                        <hr>
+                        <option value="MODIFY">MODIFY</option>
+                        <option value="REMOVE">REMOVE</option>
+                    </select></td>
+                </form>
+            </tr>
+        </tbody>
+    </table>
+   {% endblock content%}
