@@ -1,66 +1,63 @@
-<!DOCTYPE html>
- <head>
-<link rel="#" href="#">
- </head>
- <body>
-    <body>
-        {% load static %}
+{% extends "mian.html" %}
+{% block content %}
+<body>
+    {% load static %}
     <div class="container">
-     <div class="header">
+    <div class="header">
       <img src="{% static 'adminmod/images/profile.png' %}" alt="Profile Picture Placeholder" height="100" width="100"/>
     <div class="profile-info">
-     <h1>
+    <h1>
       Juan Dela Cruz
-     </h1>
-     <p>
+    </h1>
+    <p>
       Year &amp; Section:
-     </p>
-     <p>
+    </p>
+    <p>
       Course:
-     </p>
-     <p>
+    </p>
+    <p>
       Total Violations:
-     </p>
+    </p>
     </div>
-   </div>
-   <div class="tabs">
+  </div>
+  <div class="tabs">
     <div class="tab">
     <a href="{% url 'studentstatus' %}">
       <img src="{% static 'adminmod/images/paper.png' %}" alt="Profile  Picture Placeholder" height="30" width="30"/>
-     <span>
+    <span>
       STATUS
-     </span>
+    </span>
     </a>
     </div>
     <a href="{% url 'studentsettings' %}"><div class="tab">
       <img src="{% static 'adminmod/images/lock.png' %}" alt="Profile  Picture Placeholder" height="30" width="30"/>
-     <span>
+    <span>
       PASSWORD
-     </span>
+    </span>
     </div>
     </a>
-   </div>
-   <div class="form-group">
+  </div>
+  <div class="form-group">
     <label for="current-password">
-     Current Password:
+    Current Password:
     </label>
     <input id="current-password" type="password"/>
-   </div>
-   <div class="form-group">
+  </div>
+  <div class="form-group">
     <label for="new-password">
-     New password:
+    New password:
     </label>
     <input id="new-password" type="password"/>
-   </div>
-   <div class="form-group">
+  </div>
+  <div class="form-group">
     <label for="confirm-password">
-     Confirm new password:
+    Confirm new password:
     </label>
     <input id="confirm-password" type="password"/>
-   </div>
-   <a href="#"><button type="button">DONE</button>
-   </a>
+  </div>
+  <a href="#"><button type="button">DONE</button>
+  </a>
 
   </div>
- </body>
-</html>
+</body>
+{% endblock content %}
