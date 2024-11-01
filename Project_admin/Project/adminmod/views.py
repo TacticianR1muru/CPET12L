@@ -117,35 +117,35 @@ def generate_random_password():
     # Function to generate a random password
     return ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(10))
 
+import random
+import string
+from django.shortcuts import render
+from .forms import UserForm
+from .models import User
+
+def generate_random_password(length=10):
+    """Utility function to generate a random password."""
+    return ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(length))
+
 def adduser(request):
     if request.method == 'POST':
         form = UserForm(request.POST)
         if form.is_valid():
-            # Process form data if valid
-            employee_id = form.cleaned_data['employee_id']
-            employee_name = form.cleaned_data['employee_name']
-            position = form.cleaned_data['position']
-
-            try:
-                first_name, last_name = employee_name.split(' ')
-            except ValueError:
-                # Handle cases where there isn't a proper "First Last" format
-                first_name, last_name = employee_name, ""
-
             # Generate email based on first and last name
+            first_name = form.cleaned_data['first_name']
+            last_name = form.cleaned_data['last_name']
             email = f"{last_name.lower()}.{first_name.lower()}@email.com" if last_name else f"{first_name.lower()}@email.com"
             
-            password = ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(10))
+            # Generate a random password
+            password = generate_random_password()
 
-            # Create user
-            user = User.objects.create(
-                employee_id=employee_id,
-                employee_name=employee_name,
-                email=email,
-                password=password,
-                position=position,
-            )
+            # Set the generated email and password on the form instance
+            user = form.save(commit=False)
+            user.email = email
+            user.password = password  # Note: Normally, you'd hash the password before saving
             
+            user.save()
+
             # Pass generated email and password to the template
             return render(request, 'user_role/Add User.html', {
                 'form': form,
@@ -153,6 +153,7 @@ def adduser(request):
                 'generated_password': password
             })
         else:
+            # Return the form with errors if it's not valid
             return render(request, 'user_role/Add User.html', {'form': form})
 
     # Generate a random password for the initial GET request

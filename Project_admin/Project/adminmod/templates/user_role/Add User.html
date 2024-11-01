@@ -2,7 +2,6 @@
 {% block content %}
 {% load static %}
 <body>
-    {% load static %}
     <div class="container">
         <div class="header">
             <a href="{% url 'userrole' %}">
@@ -14,48 +13,56 @@
 
         <form method="POST">
             {% csrf_token %}
+            
+            <!-- Employee ID Field -->
             <div class="form-group">
                 <label for="employee-id">Employee ID:</label>
                 {{ form.employee_id }}
-                {{ form.employee_id.errors }}
+                <div class="error-message">{{ form.employee_id.errors }}</div>
             </div>
 
-            <!-- Separated Name Fields -->
+            <!-- First Name Field -->
             <div class="form-group">
                 <label for="first-name">First Name:</label>
                 {{ form.first_name }}
-                {{ form.first_name.errors }}
+                <div class="error-message">{{ form.first_name.errors }}</div>
             </div>
 
+            <!-- Middle Initial Field -->
             <div class="form-group">
                 <label for="middle-initial">Middle Initial:</label>
                 {{ form.middle_initial }}
-                {{ form.middle_initial.errors }}
+                <div class="error-message">{{ form.middle_initial.errors }}</div>
             </div>
 
+            <!-- Last Name Field -->
             <div class="form-group">
                 <label for="last-name">Last Name:</label>
                 {{ form.last_name }}
-                {{ form.last_name.errors }}
+                <div class="error-message">{{ form.last_name.errors }}</div>
             </div>
 
+            <!-- Suffix Field -->
             <div class="form-group">
                 <label for="suffix">Suffix:</label>
                 {{ form.suffix }}
-                {{ form.suffix.errors }}
+                <div class="error-message">{{ form.suffix.errors }}</div>
             </div>
 
+            <!-- Position Field -->
             <div class="form-group position-group">
                 <label for="position">Position:</label>
                 {{ form.position }}
-                {{ form.position.errors }}
+                <div class="error-message">{{ form.position.errors }}</div>
             </div>
 
+            <!-- Generated Email Display -->
             <div class="form-group">
                 <label for="generated-email">Generated Email:</label>
                 <input type="text" id="generated-email" value="{{ generated_email|default:'lastname.firstname@email.com' }}" readonly/>
             </div>
 
+            <!-- Generated Password Display and Retry Option -->
             <div class="form-group">
                 <label for="generated-password">Generated Password:</label>
                 <div class="generated-password">
@@ -64,23 +71,22 @@
                 </div>
             </div>
 
-            <button type="submit" class="done-button">DONE</button>
+            <!-- Submit Button -->
+            <button type="submit" class="done-button">Submit</button>
         </form>
     </div>
 
     <script>
-        // JavaScript to handle the retry button click and get a new password
+        // JavaScript to handle retry password button
         $('#retry-password').click(function() {
             $.ajax({
-                url: "{% url 'retry_password' %}",  // Update this URL with the correct path to your retry_password view
+                url: "{% url 'retry_password' %}",  // Replace with the correct path to your password retry view
                 method: "GET",
                 success: function(data) {
-                    // Update the password field with the newly generated password
                     $('#generated-password').val(data.generated_password);
                 }
             });
         });
     </script>
 </body>
-
 {% endblock %}

@@ -1,5 +1,5 @@
 from django import forms
-from .models import Signup, DropdownOption, Course, Section, Report, ViolationType,User, DenyReport
+from .models import Signup, DropdownOption, Course, Section, Report, ViolationType, User, DenyReport, User
 from django.forms import ModelForm
 import random
 import string
@@ -31,16 +31,36 @@ class ViolationTypeForm(forms.ModelForm):
         fields = ['name', 'violation_type', 'description', 'guidelines', 'sanction_period_value', 'sanction_period_type']
 
 
+
+
+
+from django import forms
+from .models import User
+import random
+import string
+
 class UserForm(forms.ModelForm):
     first_name = forms.CharField(max_length=30, label="First Name")
     middle_initial = forms.CharField(max_length=1, required=False, label="Middle Initial")
     last_name = forms.CharField(max_length=30, label="Last Name")
     suffix = forms.CharField(max_length=10, required=False, label="Suffix")
-    
+    position = forms.ChoiceField(choices=User.USER_CHOICES)
+    email = forms.EmailField(label="Email")
+    password = forms.CharField(widget=forms.PasswordInput, label="Password")
+
     class Meta:
         model = User
-        fields = ['employee_id', 'first_name', 'middle_initial', 'last_name', 'suffix', 'position']
-    
+        fields = [
+            'employee_id', 
+            'first_name', 
+            'middle_initial', 
+            'last_name', 
+            'suffix', 
+            'position', 
+            'email', 
+            'password'
+        ]
+
     def clean_employee_id(self):
         employee_id = self.cleaned_data['employee_id']
         if User.objects.filter(employee_id=employee_id).exists():
@@ -50,7 +70,7 @@ class UserForm(forms.ModelForm):
     def save(self, commit=True):
         user = super().save(commit=False)
 
-        # Concatenate the name fields to form employee_name
+        # Construct the full name
         full_name = f"{self.cleaned_data['first_name']} "
         if self.cleaned_data['middle_initial']:
             full_name += f"{self.cleaned_data['middle_initial']}. "
@@ -58,8 +78,12 @@ class UserForm(forms.ModelForm):
         if self.cleaned_data['suffix']:
             full_name += f", {self.cleaned_data['suffix']}"
 
-        # Assign the concatenated full name to employee_name
+        # Assign constructed full name to employee_name
         user.employee_name = full_name
+
+        # Set and hash the password
+        password = self.cleaned_data['password']
+        user.set_password(password)
 
         if commit:
             user.save()
