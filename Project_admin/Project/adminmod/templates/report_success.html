@@ -1,11 +1,14 @@
-<!DOCTYPE html>
-<html>
+{% extends "main.html" %}
+{% block content %}
 <head>
-    <title>Report Submitted Successfully!</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/registration_success.css' %}">
 </head>
 <body>
-    <h1>Report Submitted Successfully!</h1>
-    <p>Your report has been submitted. Thank you!</p>
-    <a href="{% url 'file_report' %}">Submit another report</a>
+    <div class="success-container">
+        <h1>Registration Completed!</h1>
+        <p>Your registration was successful. Thank you!</p>
+        <a href="/">Go back to home</a>
+    </div>
 </body>
-</html>
+
+{% endblock %}

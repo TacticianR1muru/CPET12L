@@ -1,15 +1,18 @@
 {% extends "main.html" %}
 
 {% block content%}
+{% load static %}
+<head>
+<link rel="stylesheet" type="text/css" href="{% static 'css/signup.css' %}">
 </head>
 <body>
     <div class="signup-container">
+        <img src="{% static 'adminmod/images/logo.png' %}" alt="Logo"/>
         <h2>SIGN UP</h2>
+        <hr/>
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
-
-            <!-- Submit button -->
             <button type="submit">SIGN UP</button>
         </form>
     </div>
