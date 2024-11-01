@@ -1,6 +1,6 @@
-/* registration_success.css /
+/* registration_success.css */
 
-/ Centered container with padding and subtle styling /
+/* Centered container with padding and subtle styling */
 .success-container {
     max-width: 600px;
     margin: 100px auto;
@@ -12,7 +12,7 @@
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-/ Heading styling /
+/* Heading styling */
 .success-container h1 {
     color: #2e8b57;
     font-size: 28px;
@@ -20,14 +20,14 @@
     margin-bottom: 15px;
 }
 
-/ Paragraph styling /
+/* Paragraph styling */
 .success-container p {
     color: #555;
     font-size: 18px;
     margin-bottom: 20px;
 }
 
-/ Link styling with hover effect */
+/* Link styling with hover effect */
 .success-container a {
     color: #4682b4;
     font-size: 16px;
