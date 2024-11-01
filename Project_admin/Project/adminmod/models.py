@@ -78,9 +78,9 @@ class User(models.Model):
     ]
     
     employee_id = models.CharField(max_length=20, unique=True)
-    first_name = models.CharField(max_length=30)
+    first_name = models.CharField(max_length=30, default="Unknown")
     middle_initial = models.CharField(max_length=1, blank=True, null=True)
-    last_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30, default="Unknown")
     suffix = models.CharField(max_length=10, blank=True, null=True)
     email = models.EmailField(unique=True)
     password = models.CharField(max_length=100)
