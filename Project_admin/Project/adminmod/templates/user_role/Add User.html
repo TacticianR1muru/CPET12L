@@ -1,14 +1,12 @@
-<!DOCTYPE html>
-<head>
-    <title>Add User</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-</head>
+{% extends "main.html" %}
+{% block content %}
+{% load static %}
 <body>
     {% load static %}
     <div class="container">
         <div class="header">
             <a href="{% url 'userrole' %}">
-                <img src="{% static 'adminmod/images/arrow-left.png' %}" alt="Profile Picture Placeholder" height="30" width="30"/>
+                <img src="{% static 'adminmod/images/arrow-left.png' %}" alt="Back" height="30" width="30"/>
             </a>
             <h1>Add User</h1>
         </div>
@@ -22,10 +20,29 @@
                 {{ form.employee_id.errors }}
             </div>
 
+            <!-- Separated Name Fields -->
             <div class="form-group">
-                <label for="employee-name">Employee Name:</label>
-                {{ form.employee_name }}
-                {{ form.employee_name.errors }}
+                <label for="first-name">First Name:</label>
+                {{ form.first_name }}
+                {{ form.first_name.errors }}
+            </div>
+
+            <div class="form-group">
+                <label for="middle-initial">Middle Initial:</label>
+                {{ form.middle_initial }}
+                {{ form.middle_initial.errors }}
+            </div>
+
+            <div class="form-group">
+                <label for="last-name">Last Name:</label>
+                {{ form.last_name }}
+                {{ form.last_name.errors }}
+            </div>
+
+            <div class="form-group">
+                <label for="suffix">Suffix:</label>
+                {{ form.suffix }}
+                {{ form.suffix.errors }}
             </div>
 
             <div class="form-group position-group">
@@ -65,4 +82,5 @@
         });
     </script>
 </body>
-</html>
+
+{% endblock %}

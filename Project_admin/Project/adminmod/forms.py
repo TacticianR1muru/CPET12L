@@ -30,16 +30,40 @@ class ViolationTypeForm(forms.ModelForm):
         model = ViolationType
         fields = ['name', 'violation_type', 'description', 'guidelines', 'sanction_period_value', 'sanction_period_type']
 
+
 class UserForm(forms.ModelForm):
+    first_name = forms.CharField(max_length=30, label="First Name")
+    middle_initial = forms.CharField(max_length=1, required=False, label="Middle Initial")
+    last_name = forms.CharField(max_length=30, label="Last Name")
+    suffix = forms.CharField(max_length=10, required=False, label="Suffix")
+    
     class Meta:
         model = User
-        fields = ['employee_id', 'employee_name', 'position']
-
+        fields = ['employee_id', 'first_name', 'middle_initial', 'last_name', 'suffix', 'position']
+    
     def clean_employee_id(self):
         employee_id = self.cleaned_data['employee_id']
         if User.objects.filter(employee_id=employee_id).exists():
             raise forms.ValidationError("Employee ID already exists.")
         return employee_id
+
+    def save(self, commit=True):
+        user = super().save(commit=False)
+
+        # Concatenate the name fields to form employee_name
+        full_name = f"{self.cleaned_data['first_name']} "
+        if self.cleaned_data['middle_initial']:
+            full_name += f"{self.cleaned_data['middle_initial']}. "
+        full_name += f"{self.cleaned_data['last_name']}"
+        if self.cleaned_data['suffix']:
+            full_name += f", {self.cleaned_data['suffix']}"
+
+        # Assign the concatenated full name to employee_name
+        user.employee_name = full_name
+
+        if commit:
+            user.save()
+        return user
 
 class DenyReportForm(forms.ModelForm):
     class Meta:

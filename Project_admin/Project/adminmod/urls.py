@@ -6,7 +6,7 @@ urlpatterns = [
     path('dashboard/', views.dashboard, name='dashboard'),
     
     #dboard_violation_review
-    path('ViolationReportsActive/', views.ViolationReportsActive, name='ViolationReportsActive'),
+    path('violationreports/', views.violationreports, name='violationreports'),
     path('ViolationReportsWarning/', views.ViolationReportsWarning, name='ViolationReportsWarning'),
     path('ViolationReportsProbation/', views.ViolationReportsProbation, name='ViolationReportsProbation'),
     path('ViolationReportsSuspension/', views.ViolationReportsSuspension, name='ViolationReportsSuspension'),
