@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import AbstractUser
 
+
 # Create your models here.
 
 class DropdownOption(models.Model):
@@ -67,21 +68,34 @@ class Report(models.Model):
     def __str__(self):
         return f"Report for {self.student.first_name} {self.student.last_name}"
 
+from django.db import models
+
 class User(models.Model):
-    USER_CHOICES=[
-            ('GUARD', 'GUARD'),
-            ('INSTRUCTOR', 'INSTRUCTOR'),
-            ('ADMIN', 'ADMIN')
-        ]
+    USER_CHOICES = [
+        ('GUARD', 'GUARD'),
+        ('INSTRUCTOR', 'INSTRUCTOR'),
+        ('ADMIN', 'ADMIN')
+    ]
+    
     employee_id = models.CharField(max_length=20, unique=True)
-    employee_name = models.CharField(max_length=100)
+    first_name = models.CharField(max_length=30)
+    middle_initial = models.CharField(max_length=1, blank=True, null=True)
+    last_name = models.CharField(max_length=30)
+    suffix = models.CharField(max_length=10, blank=True, null=True)
     email = models.EmailField(unique=True)
     password = models.CharField(max_length=100)
     position = models.CharField(max_length=10, choices=USER_CHOICES)
-        
 
     def __str__(self):
-        return self.employee_name
+        # Construct the full name dynamically if needed
+        full_name = f"{self.first_name} "
+        if self.middle_initial:
+            full_name += f"{self.middle_initial}. "
+        full_name += f"{self.last_name}"
+        if self.suffix:
+            full_name += f", {self.suffix}"
+        return full_name
+
     
 class DenyReport(models.Model):
     date = models.DateField()
